@@ -1,0 +1,78 @@
+package TestCases;
+
+import java.util.concurrent.TimeUnit;
+
+import javax.lang.model.element.Element;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+import objectRepository.Loginpage;
+
+public class LoginTestcases {
+	
+	@Test
+	public void Login() throws InterruptedException
+	{
+		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://reality-qa.deskera.xyz/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS) ;
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		
+		//Thread.sleep(12000);
+		Loginpage Lp=new Loginpage(driver);
+		WebDriverWait wait=new WebDriverWait(driver, 100);
+		wait.until(ExpectedConditions.elementToBeClickable(Lp.EmailID()));
+		wait.until(ExpectedConditions.elementToBeClickable(Lp.Password()));
+		
+		
+		Lp.EmailID().sendKeys("bhagwan.jadhavbook@getnada.com");
+		Lp.Password().sendKeys("Deskera@123");
+		//Lp.EyeIcon().click();
+		//Lp.Remembermecheck().click();
+		Lp.SignINButton().click();
+		
+		Thread.sleep(8000);
+		
+		
+		Lp.Clientbutton().click();
+		Lp.AddClientbutton().click();
+		Lp.FirstName().sendKeys("Globex");
+		Lp.LastName().sendKeys("Corporation");
+		Lp.EmailAddress().sendKeys("operation@getnada.com");
+		Lp.AddOrg().click();
+		Lp.OrgName().sendKeys("DeskeraIndia");
+		Lp.FinStart().sendKeys("2020-07-01");
+		Lp.FinBegDate().sendKeys("2020-07-01");
+		Lp.Address1().sendKeys("washington avenue ext");
+		
+		Lp.City().sendKeys("Albany");
+		Lp.State().sendKeys("Alabama");
+		Lp.Zipcode().sendKeys("12205");
+		Lp.TaxID().sendKeys("123456789");
+		Lp.CollectTax().sendKeys("New York");
+		Thread.sleep(2000);
+		Lp.SaveButton().click();
+		WebDriverWait wait1=new WebDriverWait(driver, 100);
+		wait1.until(ExpectedConditions.elementToBeClickable(Lp.Next()));
+		
+		wait1.until(ExpectedConditions.elementToBeClickable(Lp.Next2()));
+		Lp.Next().click();
+		WebDriverWait wait2=new WebDriverWait(driver, 100);
+		wait2.until(ExpectedConditions.elementToBeClickable(Lp.Next1()));
+		Lp.Next1().click();
+		WebDriverWait wait3=new WebDriverWait(driver, 100);
+		wait3.until(ExpectedConditions.elementToBeClickable(Lp.Next2()));
+		Lp.Next2().click();
+	}
+
+}

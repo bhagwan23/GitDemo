@@ -1,0 +1,130 @@
+package objectRepository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+
+
+public class Loginpage {
+	
+	WebDriver driver;
+	
+	public Loginpage(WebDriver driver)
+	{
+		this.driver=driver;
+		
+	}
+	By Email = By.xpath("(//div[contains(.,'Email')])[8]");
+	
+	//By Email = By.xpath("//input[@name='first']");
+	By Password = By.xpath("//input[@name='password']");
+	//By eyeIcon = By.xpath("//wtf2-icon[contains(.,'visibility_off')]");
+	//By Rememberme = By.xpath("//span[contains(.,'Remember me')])[1]");
+	By SignINButton = By.xpath("//span[contains(.,' SIGN IN ')]");
+	By Client = By.xpath("//span[@class='ng-star-inserted'][contains(.,'Client')]");
+	By AddClient = By.xpath("(//span[contains(.,'Add Client')])[2]");
+	By FirstName = By.xpath("//input[@formcontrolname='firstname']");
+	By LastName = By.xpath("//input[@formcontrolname='lastname']");
+	By EmailAddress = By.xpath("//input[@name='emailId']");
+	By AddOrg = By.xpath("(//span[contains(.,'Add Organization')])[2]");
+	By OrgName = By.xpath("//div[@class='mat-form-field-infix'][contains(.,'Organization Name')]");
+	By FinStart = By.xpath("//input[@formcontrolname='financialStartDate']");
+	By FinBegDate = By.xpath("//input[@formcontrolname='bookBeginningStartDate']");
+	By Address1 = By.xpath("//input[@formcontrolname='address1']");
+	By TaxID = By.xpath("//input[contains(@formcontrolname,'gstNo')]");
+	By CollectTax = By.xpath("//input[@formcontrolname='nexus']");
+	By SaveButton = By.xpath("//button[contains(.,'Save')]");
+	
+	public WebElement EmailID()
+	{
+		return driver.findElement(Email);
+	}
+  	
+	public WebElement Password()
+	{
+		return driver.findElement(Password);
+	}
+	/*
+	public WebElement EyeIcon()
+	{
+		return driver.findElement(eyeIcon);
+	}
+	
+	public WebElement Remembermecheck()
+	{
+		//return driver.findElement(Rememberme);
+	}
+	*/
+	public WebElement SignINButton()
+	{
+		return driver.findElement(SignINButton);
+	}
+	
+	public WebElement Clientbutton()
+	{
+		return driver.findElement(Client);
+	}
+	
+	public WebElement AddClientbutton()
+	{
+		return driver.findElement(AddClient);
+	}
+	
+	public WebElement FirstName()
+	{
+		return driver.findElement(FirstName);
+	}
+	
+	public WebElement LastName()
+	{
+		return driver.findElement(LastName);
+	}
+	
+	
+	public WebElement EmailAddress()
+	{
+		return driver.findElement(EmailAddress);
+	}
+	
+	public WebElement AddOrg()
+	{
+		return driver.findElement(AddOrg);
+	}
+	
+	public WebElement OrgName()
+	{
+		return driver.findElement(OrgName);
+	}
+	
+	public WebElement FinStart()
+	{
+		return driver.findElement(FinStart);
+	}
+	
+	public WebElement FinBegDate()
+	{
+		return driver.findElement(FinBegDate);
+	}
+	
+	public WebElement Address1()
+	{
+		return driver.findElement(Address1);
+	}
+	
+	public WebElement TaxID()
+	{
+		return driver.findElement(TaxID);
+	}
+	
+	public WebElement CollectTax()
+	{
+		return driver.findElement(CollectTax);
+	}
+	
+	public WebElement SaveButton()
+	{
+		return driver.findElement(SaveButton);
+	}
+}
